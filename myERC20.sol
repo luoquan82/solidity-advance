@@ -5,7 +5,7 @@ pragma solidity ^0.8.20;
  * @title 带有增发功能的ERC20代币合约
  * @dev 实现了标准ERC20功能，并添加了仅所有者可调用的mint函数
  */
-contract ERC20WithMint {
+contract MYERC20 {
     // 代币基本信息
     string public name;
     string public symbol;
