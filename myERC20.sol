@@ -130,6 +130,22 @@ contract MYERC20 {
         return true;
     }
 
+    function transfer(address to, uint256 value) external returns (bool) {
+        require(
+            to != address(0),
+            "ERC20WithMint: transfer to the zero address"
+        );
+        require(
+            balanceOf[msg.sender] >= value,
+            "ERC20WithMint: insufficient balance"
+        );
+
+        balanceOf[msg.sender] -= value;
+        balanceOf[to] += value;
+        emit Transfer(msg.sender, to, value);
+        return true;
+    }
+
     /**
      * @dev 从授权地址转账
      * @param from 转出地址
